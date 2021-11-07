@@ -30,21 +30,31 @@ export class ReadingsComponent implements OnInit {
   }
   getchangeevent(e:any)
   {
+    console.log(e);
+    
     console.log(e.target.value);
-    // let data = 
-    console.log(e.target.value.split("-"));
-    const datares = e.target.value.split("-");
-    let data = datares[2]+"-"+datares[1]+"-"+datares[0]
-    this.apiservice.doGetRequest("admin/stocks/getByDate/"+data).subscribe(
-      data =>{
-        this.dataSource = data['response'];
-        console.log(this.dataSource);
-        
-      },
-      error =>{
+    if(e.target.value)
+    {
+      console.log(e.target.value.split("-"));
+      const datares = e.target.value.split("-");
+      let data = datares[2]+"-"+datares[1]+"-"+datares[0]
+      this.apiservice.doGetRequest("admin/stocks/getByDate/"+data).subscribe(
+        data =>{
+          this.dataSource = data['response'];
+          console.log(this.dataSource);
+          
+        },
+        error =>{
+  
+        }
+      )
+    }
+    else
+    {
+      this.ngOnInit();
+    }
 
-      }
-    )
+   
   }
 
   
