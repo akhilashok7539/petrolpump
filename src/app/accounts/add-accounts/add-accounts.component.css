@@ -1,0 +1,16 @@
+.col-sm-12
+{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    width: 27%;
+    margin-top: 20px;
+}
+
+.col-sm-6{
+    margin-top: 17
+    px
+    ;
+}

@@ -1,0 +1,59 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Add Quantity</h4>
+
+            </div>
+        </div>
+
+        <form [formGroup]="loadquantityform">
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="">Fuel Type</label>
+
+                    <!-- <input type="text" class="form-control" 
+                        placeholder="Enter Fuel type"> -->
+                    <select name="" id=""  formControlName="fuelType" class="form-control" >
+                        <option value="" selected disabled>Select a fuel type</option>
+                        <option value="91">91</option>
+                        <option value="95">95</option>
+
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="">Quantity </label>
+
+                    <div formArrayName="quantities" *ngFor="let a of getControls(); let i = index">
+                        <div [formGroupName]="i" style="margin-bottom: 10px;">
+                         
+                        
+                          <input type="number" name="pay" class="form-control" placeholder="Enter Quantity" formControlName="quantity">
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-2">
+                    <label for=""> </label>
+                    <button class="btn btn-info" style="    margin-top: 31px;" (click)=addItem()>+ Add New</button>
+                </div>
+
+                <div class="col-sm-12">
+                    <button class="btn btn-warning" (click)="submit()">SUBMIT</button>
+               
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

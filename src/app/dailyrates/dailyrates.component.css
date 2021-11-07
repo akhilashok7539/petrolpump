@@ -1,0 +1,40 @@
+h4{
+    text-align: left;
+    
+    color: #bd1c1c;
+}
+.card{
+    padding: 37px;background: #f62d5147;
+    color: black;
+    /* height: 282px; */
+        overflow: auto;
+        margin-top: 10px
+}
+.card::-webkit-scrollbar-track {
+    /* border: 1px solid #000 !important; */
+    padding: 2px 0 !important;
+    background-color: #f62d5147 !important;
+  }
+
+ .card::-webkit-scrollbar {
+    width: 5px;
+  }
+  .btn-success
+  {
+    background-color: #5f70c6;
+    border: 1px solid #5f70c6;
+  }
+ .card::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px #f62d5147;
+    background-color: #f62d5147;
+    border: 1px solid #f62d5147;
+  }
+  .btn-success{
+    width: 30%;
+    font-size: 21px;
+  }.phase-active{
+    color: white;
+    background-color: #f62d51 !important;
+    border-color: #f62d51 !important;
+  }

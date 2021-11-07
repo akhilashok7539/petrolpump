@@ -1,0 +1,58 @@
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { ApiservicesService } from '../_services/apiservices.service';
+import { ViewReadingComponent } from './view-reading/view-reading.component';
+
+@Component({
+  selector: 'app-readings',
+  templateUrl: './readings.component.html',
+  styleUrls: ['./readings.component.css']
+})
+export class ReadingsComponent implements OnInit {
+  dataSource = [];
+  displayedColumns = ['id', 'shifttype','date','view'];
+
+  constructor(private apiservice:ApiservicesService,private router:Router,public dialog: MatDialog) { }
+
+
+  ngOnInit(): void {
+    this.apiservice.doGetRequest("admin/stocks/getAll").subscribe(
+      data =>{
+        this.dataSource = data['response'];
+        console.log(this.dataSource);
+        
+      },
+      error =>{
+
+      }
+    )
+  }
+  getchangeevent(e:any)
+  {
+    console.log(e.target.value);
+    this.apiservice.doGetRequest("admin/stocks/getByDate/"+e.target.value).subscribe(
+      data =>{
+        this.dataSource = data['response'];
+        console.log(this.dataSource);
+        
+      },
+      error =>{
+
+      }
+    )
+  }
+
+  
+  openDialog(row:any): void {
+    const dialogRef = this.dialog.open(ViewReadingComponent, {
+      width: '550px',
+      data: row,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    
+    });
+  }
+}

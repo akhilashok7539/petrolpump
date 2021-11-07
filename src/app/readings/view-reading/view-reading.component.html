@@ -1,0 +1,29 @@
+<h6>Shift Type : {{responsedata.shiftType}} <br></h6>
+<p> Date :  {{responsedata.date}}</p>
+
+<p>Petrol Type : 91</p>
+
+<ul>
+    <li>Rate : {{responsedata.petrolType91.rate}}</li>
+    <li>Sales Quantity : {{responsedata.petrolType91.salesQuantity}}</li>
+    <li>Total Readings : {{responsedata.petrolType91.totalReading}}</li>
+    <li>Total Sales : {{responsedata.petrolType91.totalSales}}</li>
+
+</ul>
+<p>Stock Details at Petrol Type 91</p>
+<ul>
+    <li *ngFor="let s of petrolType91;let i=index;">Outlet {{i+1}} = {{s}}</li>
+</ul>
+
+<p>Petrol Type : 95</p>
+<ul>
+    <li>Rate : {{responsedata.petrolType95.rate}}</li>
+    <li>Sales Quantity : {{responsedata.petrolType95.salesQuantity}}</li>
+    <li>Total Readings : {{responsedata.petrolType95.totalReading}}</li>
+    <li>Total Sales : {{responsedata.petrolType95.totalSales}}</li>
+
+</ul>
+<p>Stock Details at Petrol Type 95</p>
+<ul>
+    <li *ngFor="let s of petrolType95;let i=index;">Outlet {{i+1}} = {{s}}</li>
+</ul>

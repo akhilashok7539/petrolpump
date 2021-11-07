@@ -1,0 +1,39 @@
+<div class="main-wrapper">
+    <div class="header">
+        <div class="header-left">
+            <a class="logo">
+                <span>Admin Dashboard</span>
+            </a>
+        </div>
+        <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"  style="color: white !important;"></i></a>
+        <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars" style="color: white !important;"></i></a>
+
+        <!-- <ul class="nav user-menu float-right">
+
+
+
+            <li class="nav-item dropdown has-arrow"  style="cursor: pointer;" >
+                <a  class="dropdown-toggle nav-link user-link" >
+                    <span class="user-img">
+                        <i class="fas fa-power-off" style="font-size: 23px;
+                        margin-right: 10px;"></i>
+                    </span>
+                    <span>Logout</span>
+                </a>
+                <div class="dropdown-menu">
+
+
+                    <a style="cursor: pointer;" class="dropdown-item" (click)="logout()">Logout</a>
+                </div>
+            </li>
+        </ul> -->
+        <button (click)="logout()"> <i class="fas fa-power-off" style="font-size: 23px;
+            margin-right: 10px;"></i> Logout</button>
+        <!-- <div class="dropdown mobile-user-menu float-right">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+            <div class="dropdown-menu dropdown-menu-right">
+
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+        </div> -->
+    </div>

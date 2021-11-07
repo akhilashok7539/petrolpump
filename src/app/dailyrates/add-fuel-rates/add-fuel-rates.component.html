@@ -1,0 +1,53 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Add Fuel Rate</h4>
+
+            </div>
+        </div>
+
+        <form [formGroup]="addfuelrate">
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="">Fuel Type</label>
+
+                  <select name="" id="" class="form-control" formControlName="fuelType">
+                      <option value="" selected disabled>Choose a fuel type</option>
+                      <option value="91">91</option>
+                      <option value="95">95</option>
+
+                  </select>
+
+                </div>
+                <div class="col-sm-6">
+                    <label for="">Rate </label>
+
+                    <input type="number" class="form-control"  formControlName="rate" placeholder="Enter Rate">
+                  
+
+                </div>
+              
+            
+                <div class="col-sm-12">
+                    <button class="btn btn-warning" (click)="submit()">SUBMIT</button>
+                    <!-- <button class="btn btn-warning"  ><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button> -->
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-3">
+                <h3 class="page-title">Load Quantities</h3>
+
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-5">
+                <button class="btn btn-danger" style="float: right;" routerLink="/add-load-quantity"> Add Quantities</button>
+
+                <!-- <input type="text" class="form-control" placeholder="search here" (keyup)="applyFilter($event.target.value)"> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3" *ngFor="let data of dataSource">
+
+                <div class="card">
+                   
+                    <h4>Fuel Type : {{data.fuelType}}</h4>
+                    <div style="    display: flex; font-size: 26px;justify-content: space-between;
+                    ">
+                         <i class="fa fa-edit" matTooltip="Edit" (click)="openDialog(data)"></i>
+                        <i class="fa fa-trash" matTooltip="Delete" (click)="delete(data)"></i>
+
+                    </div>
+                    
+                    <hr>
+                    <p style="text-align: center;font-weight: 600;">Quantities Available</p>
+                    <!-- <p > {{getdata(data.quantities)}}</p> -->
+                    <p  *ngFor="let item of data.quantitieslist;let i =index;"> 
+                            <!-- <span *ngFor="let key of item"> {{key}}</span> -->
+                            <!-- {{item.key | json }} {{item.value | json }} -->
+                     Quantity {{i+1}} - {{item}}
+
+                    </p>
+                </div>
+
+              
+            </div>
+        </div>
+    </div>
+</div>
