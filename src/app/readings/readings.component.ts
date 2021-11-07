@@ -31,7 +31,11 @@ export class ReadingsComponent implements OnInit {
   getchangeevent(e:any)
   {
     console.log(e.target.value);
-    this.apiservice.doGetRequest("admin/stocks/getByDate/"+e.target.value).subscribe(
+    // let data = 
+    console.log(e.target.value.split("-"));
+    const datares = e.target.value.split("-");
+    let data = datares[2]+"-"+datares[1]+"-"+datares[0]
+    this.apiservice.doGetRequest("admin/stocks/getByDate/"+data).subscribe(
       data =>{
         this.dataSource = data['response'];
         console.log(this.dataSource);
@@ -47,6 +51,7 @@ export class ReadingsComponent implements OnInit {
   openDialog(row:any): void {
     const dialogRef = this.dialog.open(ViewReadingComponent, {
       width: '550px',
+      height:'250px',
       data: row,
     });
 
