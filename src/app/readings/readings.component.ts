@@ -51,7 +51,7 @@ export class ReadingsComponent implements OnInit {
   openDialog(row:any): void {
     const dialogRef = this.dialog.open(ViewReadingComponent, {
       width: '550px',
-      height:'250px',
+      height:'450px',
       data: row,
     });
 
