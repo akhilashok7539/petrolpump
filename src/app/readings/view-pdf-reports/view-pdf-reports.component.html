@@ -1,0 +1,103 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+
+    <div class="content">
+
+        <div class="card" id="pdfTable" #pdfTable>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4>SALES REPORT</h4>
+                </div>
+                <div class="col-sm-4">
+                    <h6>Date : {{responsedata.date}}</h6>
+                    <p class="para">Shift Type : <span style="  text-transform: capitalize;">
+                            {{responsedata.shiftType}}</span></p>
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <h6 style="    text-align: end;">Petrol Pump Name </h6>
+                </div>
+                <hr>
+                <div class="col-sm-4">
+                    <h6>Petrol Type : 91</h6>
+
+                    <ul>
+                        <li>Rate : {{responsedata.petrolType91.rate}}</li>
+                        <li>Sales Quantity : {{responsedata.petrolType91.salesQuantity}}</li>
+                        <li>Total Readings : {{responsedata.petrolType91.totalReading}}</li>
+                        <li>Total Sales : {{responsedata.petrolType91.totalSales}}</li>
+                    </ul>
+                </div>
+
+                <hr>
+                <div class="col-sm-12">
+                    <h6 style="text-align: center; font-weight: bold;">Dispenser Readings for Petrol Type 91 : </h6>
+                </div>
+                <div class="col-sm-12">
+                    <!-- <ul>
+                        <li *ngFor="let s of petrolType91;let i=index;">Outlet {{i+1}} = {{s}}</li>
+
+                    </ul> -->
+                    <table>
+                        <tr >
+                          
+                            <th *ngFor="let s of petrolType91;let i=index;">Outlet {{i+1}} <br> {{s}}</th>
+
+                        </tr>
+                    </table>
+                </div>
+                <!-- <div class="col-sm-6">
+                </div> -->
+                <hr>
+                <div class="col-sm-4">
+                    <h6>Petrol Type : 95</h6>
+
+                    <ul>
+                        <li>Rate : {{responsedata.petrolType95.rate}}</li>
+                        <li>Sales Quantity : {{responsedata.petrolType95.salesQuantity}}</li>
+                        <li>Total Readings : {{responsedata.petrolType95.totalReading}}</li>
+                        <li>Total Sales : {{responsedata.petrolType95.totalSales}}</li>
+
+                    </ul>
+                </div>
+                <hr>
+                <div class="col-sm-12">
+                    <h6 style="text-align: center;">Dispenser Readings for Petrol Type 95 : </h6>
+                </div>
+                <div class="col-sm-12">
+                    <!-- <ul>
+                        <li *ngFor="let s of petrolType95;let i=index;">Outlet {{i+1}} <br> {{s}}</li>
+
+                    </ul> -->
+                    <table>
+                        <tr >
+                            <th *ngFor="let s of petrolType95;let i=index;">Outlet {{i+1}} <br> {{s}}</th>
+
+                        </tr>
+                    </table>
+                </div>
+                <!-- <div class="col-sm-6">
+                </div> -->
+                <hr>
+
+                <div class="col-sm-12">
+                    <ul>
+                        <li>Bank Payment : {{responsedata.bankPayment}}</li>
+                        <li>Short In Collection : {{responsedata.shortInCollection}}</li>
+                        <li>Vehicle Number : {{responsedata.shortInCollectionVechNo}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<a class="float" (click)="download()">
+    <i class="fa fa-download my-float"></i>
+</a>

@@ -31,13 +31,21 @@ export class AddAccountsComponent implements OnInit {
   submit()
   {
     console.log(this.accountantForm.valid);
-    this.apiservice.doPostRequest("admin/users/addUser",this.accountantForm.value).subscribe(
-      data =>{
-        this.router.navigate(['/account'])
-      },
-      error =>{
-
-      }
-    )
+    if(this.accountantForm.valid)
+    {
+      this.apiservice.doPostRequest("admin/users/addUser",this.accountantForm.value).subscribe(
+        data =>{
+          this.router.navigate(['/account'])
+        },
+        error =>{
+  
+        }
+      )
+    }
+    else
+    {
+      
+    }
+   
   }
 }

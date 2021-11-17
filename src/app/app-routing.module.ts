@@ -12,6 +12,7 @@ import { LoadquantiyComponent } from './loadquantiy/loadquantiy.component';
 import { LoginComponent } from './login/login.component';
 import { PetrolpumpboyComponent } from './petrolpumpboy/petrolpumpboy.component';
 import { ReadingsComponent } from './readings/readings.component';
+import { ViewPdfReportsComponent } from './readings/view-pdf-reports/view-pdf-reports.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path:'add-dailyrates',component:AddFuelRatesComponent},
   {path:'update-dailyrates',component:UpdateFuelRatesComponent},
 
+  {path:'view-pdfreports',component:ViewPdfReportsComponent},
 
 
 

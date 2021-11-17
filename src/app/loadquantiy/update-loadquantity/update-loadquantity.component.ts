@@ -92,4 +92,9 @@ export class UpdateLoadquantityComponent implements OnInit {
     //  }));
     this.quantitiesarray.push(this.loadquantityform.value['quantities'])
   }
+  Close()
+  {
+    this.dialogRef.close();
+
+  }
 }

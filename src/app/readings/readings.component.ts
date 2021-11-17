@@ -70,4 +70,9 @@ export class ReadingsComponent implements OnInit {
     
     });
   }
+  openPdf(s:any)
+  {
+    sessionStorage.setItem("pdfdata",JSON.stringify(s));
+    this.router.navigate(['/view-pdfreports'])
+  }
 }

@@ -56,8 +56,8 @@
                        <ng-container matColumnDef="status">
                         <mat-header-cell *matHeaderCellDef > Status</mat-header-cell>
                         <mat-cell *matCellDef="let row">
-                            <button class="btn btn-success" *ngIf="row.isActive === false" (click)="updatestatus(row)">Activate</button>   &nbsp; 
-                            <button class="btn btn-danger" *ngIf="row.isActive === true" (click)="updatestatus(row)">Deactivate</button>    
+                            <button class="btn btn-success" *ngIf="row.isActive === false" (click)="updatestatus(row)">Active</button>   &nbsp; 
+                            <button class="btn btn-danger" *ngIf="row.isActive === true" (click)="updatestatus(row)">Deactive</button>    
 
                         </mat-cell>
                     </ng-container>

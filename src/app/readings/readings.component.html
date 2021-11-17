@@ -47,7 +47,12 @@
                    
                     <ng-container matColumnDef="view">
                         <mat-header-cell *matHeaderCellDef > Action</mat-header-cell>
-                        <mat-cell *matCellDef="let row"> <button class="btn btn-primary" (click)="openDialog(row)">View More</button> </mat-cell>
+                        <mat-cell *matCellDef="let row">
+                            
+                            <button class="btn btn-primary" (click)="openDialog(row)">View More</button> &nbsp;
+                            <button class="btn btn-primary" (click)="openPdf(row)">View PDF</button>
+                        
+                        </mat-cell>
                     </ng-container>
 
                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
