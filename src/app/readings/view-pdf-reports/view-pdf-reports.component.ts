@@ -1,24 +1,28 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { jsPDF } from 'jspdf';
-
+import { ApiservicesService } from 'src/app/_services/apiservices.service';
+import * as html2canvas from 'html2canvas';
 @Component({
   selector: 'app-view-pdf-reports',
   templateUrl: './view-pdf-reports.component.html',
   styleUrls: ['./view-pdf-reports.component.css']
 })
 export class ViewPdfReportsComponent implements OnInit {
-  @ViewChild('pdfTable', { static: false })pdfTable: ElementRef;
- 
+  @ViewChild('pdfTable', { static: false }) pdfTable: ElementRef;
+
   responsedata: any = [];
   petrolType91: any = [];
   petrolType95: any = [];
-
-  constructor() { }
+  dataSource = [];
+  img1: any;
+  img2: any;
+  img3: any;
+  constructor(private apiservice: ApiservicesService) { }
 
   ngOnInit(): void {
     // console.log(data);
 
-    this.responsedata = JSON.parse(sessionStorage.getItem("pdfdata")|| '{}');
+    this.responsedata = JSON.parse(sessionStorage.getItem("pdfdata") || '{}');
     for (let obj of this.responsedata.petrolType91.stockDetails) {
       // console.log("object:", obj);
       for (let key in obj) {
@@ -39,30 +43,43 @@ export class ViewPdfReportsComponent implements OnInit {
         }
       }
     }
+
+    this.apiservice.doGetRequest("admin/stocks/getByDate/" + this.responsedata.date).subscribe(
+      data => {
+        this.dataSource = data['response'];
+        console.log(this.dataSource);
+
+      },
+      error => {
+
+      }
+    )
   }
-  download()
-  {
+  download() {
     console.log("s");
-    let date = new Date();
-    // console.log(date.getDate());
-    // console.log(date.getMonth());
-    // console.log(date.getFullYear());
+
     let currentDate = this.responsedata.date;
-    console.log(currentDate);
-    
-    
-    const doc = new jsPDF();
+    // const doc = new jsPDF('p', 'mm', [210, 200]);
+    const doc = new jsPDF('p', 'mm', 'a4');
 
     const pdfTable = this.pdfTable.nativeElement;
+    // doc.addPage();
+    // doc.text(20, 20, 'Do you like that?');
 
     doc.html(pdfTable, {
+    
       callback: function (doc) {
-        doc.save('Salesreport-'+currentDate+'.pdf');
+      
+        doc.save('Salesreport-' + currentDate + '.pdf');
       },
-      margin: [0,0, 0,0],
+      margin: [0, 0, 0, 0],
       html2canvas: { scale: .15 },
+
     });
+    
 
   }
+
+
 
 }

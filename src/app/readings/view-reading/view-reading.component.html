@@ -1,15 +1,107 @@
 <h6>Shift Type : {{responsedata.shiftType}} <br></h6>
-<p> Date :  {{responsedata.date}}</p>
+<p> Date : {{responsedata.date}}</p>
 
-<p>Petrol Type : 91</p>
+<table id="customers">
+    <tr>
+        <th>{{responsedata.shiftType}}</th>
+        <th>91</th>
+        <th>95</th>
+    </tr>
+    <tr>
+        <td>Opening Stock</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Load</td>
+        <td>{{load91}}</td>
+        <td>{{load95}}</td>
+    </tr>
+    <tr>
+        <td>Sales</td>
+        <td>{{salesstock91}}</td>
+        <td>{{salesstock95}}</td>
+    </tr>
+    <tr>
+        <td>Stock ex or ms</td>
+        <td>91</td>
+        <td>95</td>
+    </tr>
+</table>
 
-<ul>
+<!-- 
+<table id="customers">
+    <tr>
+        <th>91</th>
+       
+      </tr>
+      <tr *ngFor="let s of petrolType91;let i=index;">
+        <td>Outlet {{i+1}} = {{s}}</td>
+       
+      </tr>
+     
+</table> -->
+<div class="row">
+    <div class="col-sm-6">
+        <p style="margin-top: 20px;">Petrol Type : 91</p>
+
+        <table id="customers">
+            <tr>
+                <th>91</th>
+
+            </tr>
+            <tr *ngFor="let s of petrolType91;let i=index;">
+                <td>Outlet {{i+1}} = {{s}}</td>
+
+            </tr>
+
+        </table>
+        <p>Rate : {{responsedata.petrolType91.rate}}</p>
+        <p>Sales Quantity : {{responsedata.petrolType91.salesQuantity}}</p>
+        <p>Total Readings : {{responsedata.petrolType91.totalReading}}</p>
+        <p>Total Sales : {{responsedata.petrolType91.totalSales}}</p>
+
+
+    </div>
+    <div class="col-sm-6">
+        <p style="margin-top: 20px;">Petrol Type : 95</p>
+
+        <table id="customers">
+            <tr>
+                <th>95</th>
+
+            </tr>
+            <tr *ngFor="let s of petrolType95;let i=index;">
+                <td>Outlet {{i+1}} = {{s}}</td>
+
+            </tr>
+
+        </table>
+        <p>Rate : {{responsedata.petrolType95.rate}}</p>
+        <p>Sales Quantity : {{responsedata.petrolType95.salesQuantity}}</p>
+        <p>Total Readings : {{responsedata.petrolType95.totalReading}}</p>
+        <p>Total Sales : {{responsedata.petrolType95.totalSales}}</p>
+
+    </div>
+
+    <div class="col-sm-12">
+        <h6>Overall sales at {{responsedata.shiftType}} : 
+            <span style="    color: red;"> {{responsedata.overAllSales}}</span>
+           </h6>
+    </div>
+   
+</div>
+
+
+<!-- <ul>
     <li>Rate : {{responsedata.petrolType91.rate}}</li>
     <li>Sales Quantity : {{responsedata.petrolType91.salesQuantity}}</li>
     <li>Total Readings : {{responsedata.petrolType91.totalReading}}</li>
     <li>Total Sales : {{responsedata.petrolType91.totalSales}}</li>
 
-</ul>
+</ul> -->
+
+<!-- 
 <p>Dispenser Readings for Petrol Type 91</p>
 <ul>
     <li *ngFor="let s of petrolType91;let i=index;">Outlet {{i+1}} = {{s}}</li>
@@ -26,4 +118,4 @@
 <p>Dispenser Readings for Petrol Type 95</p>
 <ul>
     <li *ngFor="let s of petrolType95;let i=index;">Outlet {{i+1}} = {{s}}</li>
-</ul>
+</ul> -->
