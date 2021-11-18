@@ -60,7 +60,7 @@ export class ReadingsComponent implements OnInit {
   
   openDialog(row:any): void {
     const dialogRef = this.dialog.open(ViewReadingComponent, {
-      width: '850px',
+      width: '950px',
       height:'650px',
       data: row,
     });

@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiservicesService } from 'src/app/_services/apiservices.service';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-view-reading',
@@ -8,6 +9,8 @@ import { ApiservicesService } from 'src/app/_services/apiservices.service';
   styleUrls: ['./view-reading.component.css']
 })
 export class ViewReadingComponent implements OnInit {
+  @ViewChild('pdfTable', { static: false }) pdfTable: ElementRef;
+
   responsedata: any = [];
   petrolType91: any = [];
   petrolType95: any = [];
@@ -99,5 +102,28 @@ export class ViewReadingComponent implements OnInit {
     }
   )
   }
+  download() {
+    console.log("s");
 
+    let currentDate = this.responsedata.date;
+    // const doc = new jsPDF('p', 'mm', [210, 200]);
+    const doc = new jsPDF('p', 'mm', 'a4');
+
+    const pdfTable = this.pdfTable.nativeElement;
+    // doc.addPage();
+    // doc.text(20, 20, 'Do you like that?');
+
+    doc.html(pdfTable, {
+    
+      callback: function (doc) {
+      
+        doc.save('Salesreport-' + currentDate + '.pdf');
+      },
+      margin: [20, 20,20,20],
+      html2canvas: { scale: .17 },
+
+    });
+    
+
+  }
 }

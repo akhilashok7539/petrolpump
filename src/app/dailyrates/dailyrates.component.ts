@@ -11,6 +11,8 @@ export class DailyratesComponent implements OnInit {
   dataSource :any;
   displayedColumns = ['id', 'categoryname'];
   fuelType = "91";
+  fuelType2 = "95";
+  dataSource95:any;
   activeButton =1;
   constructor(private apiservice:ApiservicesService,private router:Router) { }
 
@@ -18,6 +20,14 @@ export class DailyratesComponent implements OnInit {
     this.apiservice.doGetRequest("petrolBoy/fuelRate/"+this.fuelType).subscribe(
       data =>{
         this.dataSource = data['response']
+      },
+      error =>{
+        
+      }
+    )
+    this.apiservice.doGetRequest("petrolBoy/fuelRate/"+this.fuelType2).subscribe(
+      data =>{
+        this.dataSource95 = data['response']
       },
       error =>{
         

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { ApiservicesService } from 'src/app/_services/apiservices.service';
 @Component({
   selector: 'app-add-pumpboy',
@@ -11,7 +13,9 @@ export class AddPumpboyComponent implements OnInit {
 
   accountantForm:FormGroup;
   submitted = false;
-  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router) { 
+  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router, 
+    private toaster:ToastrService,
+     private spinner: NgxSpinnerService) { 
     this.accountantForm = this.fb.group({
       userId:['',Validators.required],
       role:['2',Validators.required],
@@ -38,7 +42,10 @@ export class AddPumpboyComponent implements OnInit {
           this.router.navigate(['/petrol-pump-boy'])
         },
         error =>{
-  
+          console.log(error.error.response);
+          
+          this.toaster.error(error.error.response)
+          this.spinner.hide();
         }
       )
     }

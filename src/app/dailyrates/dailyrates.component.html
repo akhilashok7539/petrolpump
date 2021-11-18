@@ -32,17 +32,19 @@
             </div> -->
         </div>
         <div class="row" style="display: flex; justify-content: center;">
+            <!-- (click)="showPhase(2)" -->
 
-
-            <button class="btn btn-success" [class.phase-active]="activeButton === 1" (click)="showPhase(1)">Fuel Type 91</button>
-            <button class="btn btn-success" [class.phase-active]="activeButton === 2" (click)="showPhase(2)">Fuel Type 95</button>
+            <!-- <button class="btn btn-success" [class.phase-active]="activeButton === 1" >Fuel Type 91</button>
+            <button class="btn btn-success" [class.phase-active]="activeButton === 2" >Fuel Type 95</button> -->
 
             
         </div>
         <div class="row" style="    display: flex;
         justify-content: center;
         margin-top: 38px;">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
+            <button class="btn btn-success" style="width: 100%;" [class.phase-active]="activeButton === 1" >Fuel Type 91</button>
+
                 <div class="card" >
                    
                     <h4>Fuel Type : {{dataSource?.fuelType}}  <i class="fa fa-edit" (click)="edit(dataSource)" style="display: flex;
@@ -54,6 +56,28 @@
                         margin-left: 76%;" matTooltip="Edit"></i></h4>
          
                     <h4>Fuel Rate : {{dataSource?.rate}}</h4>
+
+                
+                </div>
+
+
+              
+            </div>
+            <div class="col-sm-4">
+            <button class="btn btn-success" style="width: 100%;" [class.phase-active]="activeButton === 2" >Fuel Type 95</button>
+
+                <div class="card" style="    background: #5f70c652;
+                color: #5f70c6;">
+                   
+                    <h4 style="  color: #5f70c6;">Fuel Type : {{dataSource95?.fuelType}}  <i class="fa fa-edit" (click)="edit(dataSource)" style="display: flex;
+                        justify-content: end;
+                        font-size: 26px;
+                        color: #5f70c6;
+                        position: absolute;
+                        float: right;
+                        margin-left: 76%;" matTooltip="Edit"></i></h4>
+         
+                    <h4 style="  color: #5f70c6;">Fuel Rate : {{dataSource95?.rate}}</h4>
 
                 
                 </div>

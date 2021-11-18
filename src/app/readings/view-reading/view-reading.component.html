@@ -1,9 +1,15 @@
-<h6>Shift Type : {{responsedata.shiftType}} <br></h6>
+<div id="pdfTable" #pdfTable>
+
+
+<h6 *ngIf="responsedata.shiftType === 'day_shift'">Shift Type : Day Shift <br></h6>
+<h6 *ngIf="responsedata.shiftType === 'night_shift'">Shift Type : Night Shift <br></h6>
+
 <p> Date : {{responsedata.date}}</p>
 
 <table id="customers">
     <tr>
-        <th>{{responsedata.shiftType}}</th>
+        <th  *ngIf="responsedata.shiftType === 'night_shift'">Shift Type : Night Shift</th>
+        <th *ngIf="responsedata.shiftType === 'day_shift'">Shift Type : Day Shift</th>
         <th>91</th>
         <th>95</th>
     </tr>
@@ -51,7 +57,7 @@
 
             </tr>
             <tr *ngFor="let s of petrolType91;let i=index;">
-                <td>Outlet {{i+1}} = {{s}}</td>
+                <td>Readings {{i+1}} = {{s}}</td>
 
             </tr>
 
@@ -72,7 +78,7 @@
 
             </tr>
             <tr *ngFor="let s of petrolType95;let i=index;">
-                <td>Outlet {{i+1}} = {{s}}</td>
+                <td>Readings {{i+1}} = {{s}}</td>
 
             </tr>
 
@@ -119,3 +125,8 @@
 <ul>
     <li *ngFor="let s of petrolType95;let i=index;">Outlet {{i+1}} = {{s}}</li>
 </ul> -->
+
+</div>
+<a class="float" (click)="download()">
+    <i class="fa fa-download my-float"></i>
+</a>

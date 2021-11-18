@@ -36,7 +36,12 @@
                   
                     <ng-container matColumnDef="shifttype">
                         <mat-header-cell *matHeaderCellDef > Shift Type</mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.shiftType}} </mat-cell>
+                        <mat-cell *matCellDef="let row"> 
+                            <!-- {{row.shiftType}} -->
+                        <span *ngIf="row.shiftType === 'day_shift'"> Day Shift</span>
+                        <span *ngIf="row.shiftType === 'night_shift'">Night Shift</span>
+
+                        </mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="date">

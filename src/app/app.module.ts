@@ -18,7 +18,7 @@ import { ReadingsComponent } from './readings/readings.component';
 import { AddAccountsComponent } from './accounts/add-accounts/add-accounts.component';
 import { UpdateAccountsComponent } from './accounts/update-accounts/update-accounts.component';
 import { ApiservicesService } from './_services/apiservices.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddLoadQuantityComponent } from './loadquantiy/add-load-quantity/add-load-quantity.component';
 import { AddFuelRatesComponent } from './dailyrates/add-fuel-rates/add-fuel-rates.component';
 import { UpdateFuelRatesComponent } from './dailyrates/update-fuel-rates/update-fuel-rates.component';
@@ -27,7 +27,9 @@ import { UpdateLoadquantityComponent } from './loadquantiy/update-loadquantity/u
 import { ViewPdfReportsComponent } from './readings/view-pdf-reports/view-pdf-reports.component';
 import { AddPumpboyComponent } from './petrolpumpboy/add-pumpboy/add-pumpboy.component';
 import { UpdateStockdetailsComponent } from './readings/update-stockdetails/update-stockdetails.component';
-
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { LoaderInterceptor } from './_services/loadinginterceptor';
 @NgModule({
 
   declarations: [
@@ -56,10 +58,15 @@ import { UpdateStockdetailsComponent } from './readings/update-stockdetails/upda
     BrowserModule,FormsModule,ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
+    ToastrModule.forRoot(), // ToastrModule added
+    NgxSpinnerModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [ApiservicesService],
+  providers: [ApiservicesService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+
+  ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   entryComponents:[ViewReadingComponent,UpdateLoadquantityComponent],
   bootstrap: [AppComponent]

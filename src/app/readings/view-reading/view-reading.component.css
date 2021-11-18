@@ -26,3 +26,25 @@ h6{
     background-color: #ef8e15;
     color: white;
   }
+
+  .float{
+    position:fixed;
+    width:70px;
+    height:70px;
+    bottom:40px;
+    right:40px;
+    background-color:#0C9;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+  }
+  .fa{
+      font-size: 29px;
+      color: white;
+  
+  }
+  .my-float{
+    margin-top:22px;
+  }
+  
