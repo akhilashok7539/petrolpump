@@ -25,6 +25,8 @@ import { UpdateFuelRatesComponent } from './dailyrates/update-fuel-rates/update-
 import { ViewReadingComponent } from './readings/view-reading/view-reading.component';
 import { UpdateLoadquantityComponent } from './loadquantiy/update-loadquantity/update-loadquantity.component';
 import { ViewPdfReportsComponent } from './readings/view-pdf-reports/view-pdf-reports.component';
+import { AddPumpboyComponent } from './petrolpumpboy/add-pumpboy/add-pumpboy.component';
+import { UpdateStockdetailsComponent } from './readings/update-stockdetails/update-stockdetails.component';
 
 @NgModule({
 
@@ -46,7 +48,9 @@ import { ViewPdfReportsComponent } from './readings/view-pdf-reports/view-pdf-re
     UpdateFuelRatesComponent,
     ViewReadingComponent,
     UpdateLoadquantityComponent,
-    ViewPdfReportsComponent
+    ViewPdfReportsComponent,
+    AddPumpboyComponent,
+    UpdateStockdetailsComponent
   ],
   imports: [
     BrowserModule,FormsModule,ReactiveFormsModule,

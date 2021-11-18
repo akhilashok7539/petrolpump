@@ -18,6 +18,8 @@ export class UpdateLoadquantityComponent implements OnInit {
     public dialogRef: MatDialogRef<UpdateLoadquantityComponent>,
     @Inject(MAT_DIALOG_DATA) data: any) {
       this.arraydetails = data;
+      console.log(this.arraydetails);
+      
     this.loadquantityform = this.fb.group({
       // fuelType:[''],
       id:[''],

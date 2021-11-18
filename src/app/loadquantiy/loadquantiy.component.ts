@@ -20,6 +20,8 @@ export class LoadquantiyComponent implements OnInit {
       data =>{
         console.log(data.response);
         this.dataSource = data.response;
+        console.log(this.dataSource);
+        
         this.dataSource.map((x: any) =>{
           console.log(x);
           
@@ -82,7 +84,7 @@ export class LoadquantiyComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-    
+      this.ngOnInit();
     });
   }
 }

@@ -75,4 +75,10 @@ export class ReadingsComponent implements OnInit {
     sessionStorage.setItem("pdfdata",JSON.stringify(s));
     this.router.navigate(['/view-pdfreports'])
   }
+  editdetials(s:any)
+  {
+    sessionStorage.setItem("stock",JSON.stringify(s));
+
+    this.router.navigate(['/update-stockdetails'])
+  }
 }

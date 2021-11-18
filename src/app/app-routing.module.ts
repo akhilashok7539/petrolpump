@@ -10,8 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { AddLoadQuantityComponent } from './loadquantiy/add-load-quantity/add-load-quantity.component';
 import { LoadquantiyComponent } from './loadquantiy/loadquantiy.component';
 import { LoginComponent } from './login/login.component';
+import { AddPumpboyComponent } from './petrolpumpboy/add-pumpboy/add-pumpboy.component';
 import { PetrolpumpboyComponent } from './petrolpumpboy/petrolpumpboy.component';
 import { ReadingsComponent } from './readings/readings.component';
+import { UpdateStockdetailsComponent } from './readings/update-stockdetails/update-stockdetails.component';
 import { ViewPdfReportsComponent } from './readings/view-pdf-reports/view-pdf-reports.component';
 
 
@@ -35,6 +37,8 @@ const routes: Routes = [
 
   {path:'view-pdfreports',component:ViewPdfReportsComponent},
 
+  {path:'add-petrolpumpboy',component:AddPumpboyComponent},
+  {path:'update-stockdetails',component:UpdateStockdetailsComponent},
 
 
 ];

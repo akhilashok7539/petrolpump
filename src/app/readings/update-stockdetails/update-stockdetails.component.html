@@ -1,0 +1,67 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Update Quantity</h4>
+
+            </div>
+        </div>
+        <div class="card">
+
+            <form [formGroup]="loadquantityform">
+
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <label for="">Dispenser Readings for Petrol Type 91 : </label>
+
+                        <div formArrayName="quantities" *ngFor="let a of getControls(); let i = index">
+                            <div [formGroupName]="i" style="margin-bottom: 10px;">
+
+
+                                <input type="number" name="pay" class="form-control" placeholder="Enter Quantity"
+                                    formControlName="quantity">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="">Dispenser Readings for Petrol Type 95 : </label>
+
+                        <div formArrayName="stockdetailed95" *ngFor="let a of getControlss(); let i = index">
+                            <div [formGroupName]="i" style="margin-bottom: 10px;">
+
+
+                                <input type="number" name="pay" class="form-control" placeholder="Enter Quantity"
+                                    formControlName="stockdetailed95">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-2">
+                <label for=""> </label>
+                <button class="btn btn-info" style="    margin-top: 31px;" (click)=addItem()>+</button>
+            </div>
+
+            <div class="col-sm-12" style="display: flex;">
+                <button class="btn btn-warning" (click)="Close()">Close</button>
+
+                <button class="btn btn-warning" (click)="submit()">SUBMIT</button>
+           
+            </div> -->
+                    <button class="btn btn-warning" (click)="submit()">SUBMIT</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
