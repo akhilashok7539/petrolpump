@@ -24,9 +24,9 @@
                 <div class="col-sm-6">
                     <label for="">User Name </label>
 
-                    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userId.errors }" formControlName="userId" placeholder="Enter category type">
+                    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userId.errors }" formControlName="userId" placeholder="Enter User Name">
                     <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
-                        <div *ngIf="f.userId.errors.required">Category type is required</div>
+                        <div *ngIf="f.userId.errors.required">User Name is required</div>
 
                     </div>
 

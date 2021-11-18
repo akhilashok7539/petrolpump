@@ -35,7 +35,7 @@ export class AddPumpboyComponent implements OnInit {
     {
       this.apiservice.doPostRequest("admin/users/addUser",this.accountantForm.value).subscribe(
         data =>{
-          this.router.navigate(['/account'])
+          this.router.navigate(['/petrol-pump-boy'])
         },
         error =>{
   
