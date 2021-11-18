@@ -18,7 +18,7 @@
 
             </div>
             <div class="col-sm-5">
-                <button class="btn btn-danger" style="float: right;" routerLink="/add-load-quantity"> Add Quantities</button>
+                <button class="btn btn-danger" *ngIf="dataSource.length < 2" style="float: right;" routerLink="/add-load-quantity"> Add Quantities</button>
 
                 <!-- <input type="text" class="form-control" placeholder="search here" (keyup)="applyFilter($event.target.value)"> -->
             </div>
