@@ -53,6 +53,7 @@ export class UpdateComponent implements OnInit {
       this.apiservice.doPutRequest("admin/users/update/"+this.dataresponse._id,this.accountantForm.value).subscribe(
         data =>{
           this.router.navigate(['/petrol-pump-boy'])
+          this.toaster.success("Pump boy updated successfully")
         },
         error =>{
           console.log(error.error.response);

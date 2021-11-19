@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ApiservicesService } from 'src/app/_services/apiservices.service';
 
 @Component({
@@ -12,7 +13,9 @@ export class UpdateFuelRatesComponent implements OnInit {
 
   addfuelrate:FormGroup;
   responsedata:any;
-  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router) { 
+  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router,
+    private toaster:ToastrService
+    ) { 
     this.addfuelrate = this.fb.group({
       id:[''],
       rate:['',Validators.required],
@@ -38,8 +41,11 @@ export class UpdateFuelRatesComponent implements OnInit {
     this.apiservice.doPutRequest("admin/fuelRate/update",this.addfuelrate.value).subscribe(
       data =>{
         this.router.navigate(['/dailyrates'])
+        this.toaster.success("Fuel Rate updated successfully")
+        
       },
       error =>{
+        this.toaster.success("Fuel Rate update successfully")
 
       }
     )

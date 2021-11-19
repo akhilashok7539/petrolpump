@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ApiservicesService } from 'src/app/_services/apiservices.service';
 @Component({
   selector: 'app-update-accounts',
@@ -12,7 +13,8 @@ export class UpdateAccountsComponent implements OnInit {
   accountantForm:FormGroup;
   submitted = false;
   dataresponse:any=[];
-  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router) { 
+  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router,
+    private toaster:ToastrService) { 
     this.accountantForm = this.fb.group({
       userId:['',Validators.required],
       role:['1',Validators.required],
@@ -52,8 +54,10 @@ export class UpdateAccountsComponent implements OnInit {
       this.apiservice.doPutRequest("admin/users/update/"+this.dataresponse._id,this.accountantForm.value).subscribe(
         data =>{
           this.router.navigate(['/account'])
+          this.toaster.success("Accountant updated successfully")
         },
         error =>{
+          this.toaster.error("Unable to add accountant successfully")
   
         }
       )

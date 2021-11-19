@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiservicesService } from 'src/app/_services/apiservices.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-update-loadquantity',
   templateUrl: './update-loadquantity.component.html',
@@ -15,6 +16,7 @@ export class UpdateLoadquantityComponent implements OnInit {
   quantities!: FormArray;
   arraydetails:any = [];
   constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router,
+    private toaster:ToastrService,
     public dialogRef: MatDialogRef<UpdateLoadquantityComponent>,
     @Inject(MAT_DIALOG_DATA) data: any) {
       this.arraydetails = data;
@@ -78,8 +80,10 @@ export class UpdateLoadquantityComponent implements OnInit {
     this.apiservice.doPutRequest("admin/quantity/update",this.loadquantityform.value).subscribe(
       data =>{
         this.dialogRef.close();
+        this.toaster.success("Quantities updated successfully")
       },
       error =>{
+        this.toaster.error("unable to update quantities")
 
       }
     )

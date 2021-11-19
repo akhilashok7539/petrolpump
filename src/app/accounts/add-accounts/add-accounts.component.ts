@@ -39,6 +39,7 @@ export class AddAccountsComponent implements OnInit {
       this.apiservice.doPostRequest("admin/users/addUser",this.accountantForm.value).subscribe(
         data =>{
           this.router.navigate(['/account'])
+          this.toaster.success("Accountant added successfully");
         },
         error =>{
           console.log(error.error.response);
