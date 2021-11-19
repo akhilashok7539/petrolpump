@@ -18,6 +18,8 @@ export class UpdateStockdetailsComponent implements OnInit {
   stockdetails91: any = [];
   stockdetails95: any = [];
   stockdetailed95!: FormArray;
+  dayshiftcahsbalance:any;
+  nighshiftcashbalance:any;
   constructor(private fb: FormBuilder, private apiservice: ApiservicesService, private router: Router,) {
     this.arraydetails = JSON.parse(sessionStorage.getItem("stock")|| '{}');
     this.loadquantityform = this.fb.group({
@@ -44,16 +46,11 @@ export class UpdateStockdetailsComponent implements OnInit {
       salesQuantity95:[''],
       rate95:[''],
       totalSales95:[''],
-      lessPayment95:[''],
-      bankPayment95:[''],
-      shortInCollection95:[''],
-      shortInCollectionVechNo95:[''],
-      cashBalance95:[''],
+      
     })
 
     console.log(this.arraydetails);
     this.loadquantityform.controls['totalReading'].setValue(this.arraydetails.petrolType91.totalReading);
-    
     // this.arraydetails.map((x:any)=>{
     //   console.log(x);
       
@@ -113,6 +110,19 @@ console.log(this.stockdetails95);
 
 
       }
+
+    
+    this.apiservice.doGetRequest('admin/stocks/getByDate/'+this.arraydetails.date).subscribe(
+      (data:any)=>{
+        console.log(data);
+        let response = data['response']
+        this.dayshiftcahsbalance = response[0].cashBalance;
+        this.nighshiftcashbalance = response[1].cashBalance;
+      },
+      error =>{
+
+      }
+    )
   }
   get f()
   {
@@ -158,33 +168,31 @@ console.log(this.stockdetails95);
       "petrolBoyId":this.arraydetails.petrolBoyId,
       "date": this.arraydetails.date,
       "shiftType":this.arraydetails.shiftType,
+      lessPayment:this.loadquantityform.value['lessPayment'],
+      bankPayment:this.loadquantityform.value['bankPayment'],
+      shortInCollection:this.loadquantityform.value['shortInCollection'],
+      shortInCollectionVechNo:this.loadquantityform.value['shortInCollectionVechNo'],
+      cashBalance:this.loadquantityform.value['cashBalance'],
       "petrolType91": {
         petrolType: 91,
         stockDetails:this.loadquantityform.value['quantities'],
-        totalReading:this.loadquantityform.value['totalReading'],
-        salesQuantity:this.loadquantityform.value['salesQuantity'],
         rate:this.loadquantityform.value['rate'],
+        salesQuantity:this.loadquantityform.value['salesQuantity'],
+        totalReading:this.loadquantityform.value['totalReading'],
         totalSales:this.loadquantityform.value['totalSales'],
-        lessPayment:this.loadquantityform.value['lessPayment'],
-        bankPayment:this.loadquantityform.value['bankPayment'],
-        shortInCollection:this.loadquantityform.value['shortInCollection'],
-        shortInCollectionVechNo:this.loadquantityform.value['shortInCollectionVechNo'],
-        cashBalance:this.loadquantityform.value['cashBalance'],
+
+       
       },
       "petrolType95": {
         petrolType: 95,
         stockDetails:this.loadquantityform.value['stockdetailed95'],
-        totalReading:this.loadquantityform.value['totalReading95'],
-        salesQuantity:this.loadquantityform.value['salesQuantity95'],
         rate:this.loadquantityform.value['rate95'],
+        salesQuantity:this.loadquantityform.value['salesQuantity95'],
+        totalReading:this.loadquantityform.value['totalReading95'],
         totalSales:this.loadquantityform.value['totalSales95'],
-        lessPayment:this.loadquantityform.value['lessPayment95'],
-        bankPayment:this.loadquantityform.value['bankPayment95'],
-        shortInCollection:this.loadquantityform.value['shortInCollection95'],
-        shortInCollectionVechNo:this.loadquantityform.value['shortInCollectionVechNo95'],
-        cashBalance:this.loadquantityform.value['cashBalance95'],
+        
       },
-      "totalCashBalanceOfTheDay":this.loadquantityform.value['cashBalance95'] +this.loadquantityform.value['cashBalance']
+      "totalCashBalanceOfTheDay":this.dayshiftcahsbalance +this.nighshiftcashbalance
     }
     console.log(req);
 
