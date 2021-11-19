@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { ApiservicesService } from 'src/app/_services/apiservices.service';
 
 @Component({
@@ -11,7 +13,8 @@ import { ApiservicesService } from 'src/app/_services/apiservices.service';
 export class AddAccountsComponent implements OnInit {
   accountantForm:FormGroup;
   submitted = false;
-  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router) { 
+  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router, private toaster:ToastrService,
+    private spinner: NgxSpinnerService) { 
     this.accountantForm = this.fb.group({
       userId:['',Validators.required],
       role:['1',Validators.required],
@@ -38,7 +41,10 @@ export class AddAccountsComponent implements OnInit {
           this.router.navigate(['/account'])
         },
         error =>{
-  
+          console.log(error.error.response);
+          
+          this.toaster.error(error.error.response)
+          this.spinner.hide();
         }
       )
     }

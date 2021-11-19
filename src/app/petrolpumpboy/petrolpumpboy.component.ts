@@ -51,4 +51,9 @@ export class PetrolpumpboyComponent implements OnInit {
       }
     )
   }
+  updated(s:any)
+  {
+    sessionStorage.setItem("Accountant",JSON.stringify(s))
+    this.router.navigate(['/update-petrol-pump-boy'])
+  }
 }

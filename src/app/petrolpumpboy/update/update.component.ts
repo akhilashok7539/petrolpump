@@ -1,21 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { ApiservicesService } from 'src/app/_services/apiservices.service';
 @Component({
-  selector: 'app-update-accounts',
-  templateUrl: './update-accounts.component.html',
-  styleUrls: ['./update-accounts.component.css']
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css']
 })
-export class UpdateAccountsComponent implements OnInit {
+export class UpdateComponent implements OnInit {
+  dataresponse:any=[];
 
   accountantForm:FormGroup;
   submitted = false;
-  dataresponse:any=[];
-  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router) { 
+  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router, 
+    private toaster:ToastrService,
+     private spinner: NgxSpinnerService) { 
     this.accountantForm = this.fb.group({
       userId:['',Validators.required],
-      role:['1',Validators.required],
+      role:['2',Validators.required],
       password:[''],
       firstName:['',Validators.required],
       lastName:['',Validators.required],
@@ -35,11 +39,9 @@ export class UpdateAccountsComponent implements OnInit {
     this.accountantForm.controls['lastName'].setValue(this.dataresponse.lastName);
     this.accountantForm.controls['mobileNumber'].setValue(this.dataresponse.mobileNumber);
 
-
   }
   submit()
   {
-    // console.log(this.accountantForm.value['userId']);
     if(this.accountantForm.value['password'] === "")
     {
     delete this.accountantForm.value['password']
@@ -48,13 +50,15 @@ export class UpdateAccountsComponent implements OnInit {
 
     if(this.accountantForm.valid)
     {
-      
       this.apiservice.doPutRequest("admin/users/update/"+this.dataresponse._id,this.accountantForm.value).subscribe(
         data =>{
-          this.router.navigate(['/account'])
+          this.router.navigate(['/petrol-pump-boy'])
         },
         error =>{
-  
+          console.log(error.error.response);
+          
+          this.toaster.error(error.error.response)
+          this.spinner.hide();
         }
       )
     }

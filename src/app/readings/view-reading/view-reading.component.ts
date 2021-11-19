@@ -10,19 +10,20 @@ import { jsPDF } from 'jspdf';
 })
 export class ViewReadingComponent implements OnInit {
   @ViewChild('pdfTable', { static: false }) pdfTable: ElementRef;
-
+  totalSales91:any;
+  totalSales95:any;
   responsedata: any = [];
   petrolType91: any = [];
   petrolType95: any = [];
-  load91:any;
-  load95:any;
-  resposenarrayload:any=[];
-  resposenarrayload2:any=[];
-  openingstockfor91:any;
-  openingstockfor95:any;
-  salesstock91:any;
-  salesstock95:any;
-  constructor(private apiservicer:ApiservicesService,
+  load91: any;
+  load95: any;
+  resposenarrayload: any = [];
+  resposenarrayload2: any = [];
+  openingstockfor91: any;
+  openingstockfor95: any;
+  salesstock91: any;
+  salesstock95: any;
+  constructor(private apiservicer: ApiservicesService,
     public dialogRef: MatDialogRef<ViewReadingComponent>,
     @Inject(MAT_DIALOG_DATA) data: any) {
     console.log(data);
@@ -60,7 +61,7 @@ export class ViewReadingComponent implements OnInit {
     // this.apiservicer.doPostRequest('petrolBoy/stocks/viewPreviousShiftSales',req).subscribe(
     //   data =>{
     //     console.log(data);
-        
+
     //   },
     //   error =>{
 
@@ -68,39 +69,55 @@ export class ViewReadingComponent implements OnInit {
     // )
     this.loaddata();
   }
-  loaddata()
-  {
+  loaddata() {
 
     // get load for 91
     let req = {
-        "dateAndTime":this.responsedata.date,
-        "petrolType":91
+      "dateAndTime": this.responsedata.date,
+      "petrolType": 91
     }
-    this.apiservicer.doPostRequest('petrolBoy/load/viewByDate',req).subscribe(
-      data =>{
+    this.apiservicer.doPostRequest('petrolBoy/load/viewByDate', req).subscribe(
+      data => {
         console.log(data);
         this.resposenarrayload = data;
         this.load91 = this.resposenarrayload['response'].quantity;
       },
-      error =>{
+      error => {
 
       }
     )
-     // get load for 95
-     let req2 = {
-      "dateAndTime":this.responsedata.date,
-      "petrolType":95
-  }
-  this.apiservicer.doPostRequest('petrolBoy/load/viewByDate',req2).subscribe(
-    data =>{
-      console.log(data);
-      this.resposenarrayload2 = data;
-      this.load95 = this.resposenarrayload['response'].quantity;
-    },
-    error =>{
-
+    // get load for 95
+    let req2 = {
+      "dateAndTime": this.responsedata.date,
+      "petrolType": 95
     }
-  )
+    this.apiservicer.doPostRequest('petrolBoy/load/viewByDate', req2).subscribe(
+      data => {
+        console.log(data);
+        this.resposenarrayload2 = data;
+        this.load95 = this.resposenarrayload['response'].quantity;
+      },
+      error => {
+
+      }
+    )
+
+    // get previous shift
+    let req3 = {
+      "date": this.responsedata.date,
+      "shiftType":   this.responsedata.shiftType
+    }
+    this.apiservicer.doPostRequest('petrolBoy/stocks/viewPreviousShiftSales', req3).subscribe(
+      (data:any) => {
+        console.log(data);
+        this.totalSales91 = data['response'].totalSales91;
+        this.totalSales95 = data['response'].totalSales95;
+
+      },
+      error => {
+
+      }
+    )
   }
   download() {
     console.log("s");
@@ -114,16 +131,16 @@ export class ViewReadingComponent implements OnInit {
     // doc.text(20, 20, 'Do you like that?');
 
     doc.html(pdfTable, {
-    
+
       callback: function (doc) {
-      
+
         doc.save('Salesreport-' + currentDate + '.pdf');
       },
-      margin: [20, 20,20,20],
-      html2canvas: { scale: .17 },
+      margin: [20, 20, 20, 20],
+      html2canvas: { scale: .19 },
 
     });
-    
+
 
   }
 }

@@ -11,7 +11,7 @@
 
         <div class="row">
             <div class="col-sm-8">
-                <h4 class="page-title"> Update Quantity</h4>
+                <h4 class="page-title"> Update data on {{arraydetails.date}} - <span *ngIf="arraydetails.shiftType === 'day_shift'">Day Shift </span>  <span *ngIf="arraydetails.shiftType === 'night_shift'">Night Shift </span></h4>
 
             </div>
         </div>
@@ -33,6 +33,36 @@
                                     formControlName="quantity">
                             </div>
                         </div>
+
+                        <br>
+                        <label for="">Total Readings</label>
+                        <input type="text" class="form-control">
+
+                        <br>
+                        <label for="">Sales Quantity</label>
+                        <input type="text" class="form-control">
+
+                        <br>
+                        <label for="">Rate</label>
+                        <input type="text" class="form-control">
+                        <br>
+                        <label for="">Less Payment</label>
+                        <input type="text" class="form-control">
+
+                        <br>
+                        <label for="">Bank Payment</label>
+                        <input type="text" class="form-control">
+
+                        <br>
+                        <label for="">Collection</label>
+                        <input type="text" class="form-control">
+
+                        <br>
+                        <label for="">Vehicle Number</label>
+                        <input type="text" class="form-control">
+                        <br>
+                        <label for="">Cash Balance</label>
+                        <input type="text" class="form-control">
                     </div>
                     <div class="col-sm-6">
                         <label for="">Dispenser Readings for Petrol Type 95 : </label>
@@ -45,6 +75,35 @@
                                     formControlName="stockdetailed95">
                             </div>
                         </div>
+                        <br>
+                        <label for="">Total Readings</label>
+                        <input type="text" class="form-control">
+
+                        <br>
+                        <label for="">Sales Quantity</label>
+                        <input type="text" class="form-control">
+
+                        <br>
+                        <label for="">Rate</label>
+                        <input type="text" class="form-control">
+                        <br>
+                        <label for="">Less Payment</label>
+                        <input type="text" class="form-control">
+
+                        <br>
+                        <label for="">Bank Payment</label>
+                        <input type="text" class="form-control">
+
+                        <br>
+                        <label for="">Collection</label>
+                        <input type="text" class="form-control">
+
+                        <br>
+                        <label for="">Vehicle Number</label>
+                        <input type="text" class="form-control">
+                        <br>
+                        <label for="">Cash Balance</label>
+                        <input type="text" class="form-control">
                     </div>
                     <!-- <div class="col-sm-2">
                 <label for=""> </label>
@@ -56,8 +115,15 @@
 
                 <button class="btn btn-warning" (click)="submit()">SUBMIT</button>
            
-            </div> -->
-                    <button class="btn btn-warning" (click)="submit()">SUBMIT</button>
+            </div> -->  
+            <div class="col-sm-12">
+                <button class="btn btn-warning" (click)="submit()" style="margin-top: 20px;margin-right: auto; margin-left: auto; display: block; justify-content: center;    width: 25%;
+                padding: 12px;
+                color: white;
+                font-weight: bold;
+                letter-spacing: 2px;">SUBMIT</button>
+
+            </div>
                 </div>
 
             </form>

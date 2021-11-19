@@ -29,9 +29,30 @@ export class UpdateStockdetailsComponent implements OnInit {
       // ])
       quantities: this.fb.array([]),
       stockdetailed95:this.fb.array([]),
+
+      totalReading:[''],
+      salesQuantity:[''],
+      rate:[''],
+      totalSales:[''],
+      lessPayment:[''],
+      bankPayment:[''],
+      shortInCollection:[''],
+      shortInCollectionVechNo:[''],
+      cashBalance:[''],
+
+      totalReading95:[''],
+      salesQuantity95:[''],
+      rate95:[''],
+      totalSales95:[''],
+      lessPayment95:[''],
+      bankPayment95:[''],
+      shortInCollection95:[''],
+      shortInCollectionVechNo95:[''],
+      cashBalance95:[''],
     })
 
     console.log(this.arraydetails);
+    this.loadquantityform.controls['totalReading'].setValue(this.arraydetails.petrolType91.totalReading);
     
     // this.arraydetails.map((x:any)=>{
     //   console.log(x);
@@ -68,6 +89,7 @@ export class UpdateStockdetailsComponent implements OnInit {
 
         }
     }
+
 }
 console.log(this.stockdetails95);
 
@@ -137,13 +159,32 @@ console.log(this.stockdetails95);
       "date": this.arraydetails.date,
       "shiftType":this.arraydetails.shiftType,
       "petrolType91": {
-        "petrolType": 91,
-        "stockDetails":this.loadquantityform.value['quantities']
+        petrolType: 91,
+        stockDetails:this.loadquantityform.value['quantities'],
+        totalReading:this.loadquantityform.value['totalReading'],
+        salesQuantity:this.loadquantityform.value['salesQuantity'],
+        rate:this.loadquantityform.value['rate'],
+        totalSales:this.loadquantityform.value['totalSales'],
+        lessPayment:this.loadquantityform.value['lessPayment'],
+        bankPayment:this.loadquantityform.value['bankPayment'],
+        shortInCollection:this.loadquantityform.value['shortInCollection'],
+        shortInCollectionVechNo:this.loadquantityform.value['shortInCollectionVechNo'],
+        cashBalance:this.loadquantityform.value['cashBalance'],
       },
       "petrolType95": {
-        "petrolType": 95,
-        "stockDetails":this.loadquantityform.value['stockdetailed95']
-      }
+        petrolType: 95,
+        stockDetails:this.loadquantityform.value['stockdetailed95'],
+        totalReading:this.loadquantityform.value['totalReading95'],
+        salesQuantity:this.loadquantityform.value['salesQuantity95'],
+        rate:this.loadquantityform.value['rate95'],
+        totalSales:this.loadquantityform.value['totalSales95'],
+        lessPayment:this.loadquantityform.value['lessPayment95'],
+        bankPayment:this.loadquantityform.value['bankPayment95'],
+        shortInCollection:this.loadquantityform.value['shortInCollection95'],
+        shortInCollectionVechNo:this.loadquantityform.value['shortInCollectionVechNo95'],
+        cashBalance:this.loadquantityform.value['cashBalance95'],
+      },
+      "totalCashBalanceOfTheDay":this.loadquantityform.value['cashBalance95'] +this.loadquantityform.value['cashBalance']
     }
     console.log(req);
 

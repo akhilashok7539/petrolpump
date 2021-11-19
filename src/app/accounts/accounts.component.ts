@@ -14,6 +14,7 @@ export class AccountsComponent implements OnInit {
   constructor(private apiservice:ApiservicesService,private router:Router) { }
 
   ngOnInit(): void {
+    sessionStorage.clear();
     let responsedata = JSON.parse(localStorage.getItem("loggedinuserdetails") || '{}')
     this.adminrole = responsedata['role'];
     this.apiservice.doGetRequest("admin/users/1").subscribe(
@@ -50,5 +51,10 @@ export class AccountsComponent implements OnInit {
 
       }
     )
+  }
+  updated(s:any)
+  {
+    sessionStorage.setItem("Accountant",JSON.stringify(s))
+    this.router.navigate(['/update-account'])
   }
 }

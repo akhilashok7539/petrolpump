@@ -12,6 +12,7 @@ import { LoadquantiyComponent } from './loadquantiy/loadquantiy.component';
 import { LoginComponent } from './login/login.component';
 import { AddPumpboyComponent } from './petrolpumpboy/add-pumpboy/add-pumpboy.component';
 import { PetrolpumpboyComponent } from './petrolpumpboy/petrolpumpboy.component';
+import { UpdateComponent } from './petrolpumpboy/update/update.component';
 import { ReadingsComponent } from './readings/readings.component';
 import { UpdateStockdetailsComponent } from './readings/update-stockdetails/update-stockdetails.component';
 import { ViewPdfReportsComponent } from './readings/view-pdf-reports/view-pdf-reports.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:'add-load-quantity',component:AddLoadQuantityComponent},
 
   {path:'petrol-pump-boy',component:PetrolpumpboyComponent},
+  {path:'update-petrol-pump-boy',component:UpdateComponent},
 
   {path:'add-dailyrates',component:AddFuelRatesComponent},
   {path:'update-dailyrates',component:UpdateFuelRatesComponent},

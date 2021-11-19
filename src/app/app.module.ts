@@ -30,6 +30,7 @@ import { UpdateStockdetailsComponent } from './readings/update-stockdetails/upda
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { LoaderInterceptor } from './_services/loadinginterceptor';
+import { UpdateComponent } from './petrolpumpboy/update/update.component';
 @NgModule({
 
   declarations: [
@@ -52,7 +53,8 @@ import { LoaderInterceptor } from './_services/loadinginterceptor';
     UpdateLoadquantityComponent,
     ViewPdfReportsComponent,
     AddPumpboyComponent,
-    UpdateStockdetailsComponent
+    UpdateStockdetailsComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,FormsModule,ReactiveFormsModule,

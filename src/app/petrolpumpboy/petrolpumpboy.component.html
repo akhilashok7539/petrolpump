@@ -27,7 +27,7 @@
             <div class="col-sm-12">
 
 
-                <mat-table [dataSource]="dataSource" matSort >
+                <mat-table [dataSource]="dataSource"  >
 
                     <!-- ID Column -->
                     <ng-container matColumnDef="id">
@@ -58,6 +58,8 @@
                         <mat-cell *matCellDef="let row">
                             <button class="btn btn-success" *ngIf="row.isActive === false" (click)="updatestatus(row)">Active</button>   &nbsp; 
                             <button class="btn btn-danger" *ngIf="row.isActive === true" (click)="updatestatus(row)">Deactive</button>    
+                            &nbsp;
+                            <button (click)="updated(row)" class="btn btn-dark">Edit Account</button>
 
                         </mat-cell>
                     </ng-container>
@@ -66,7 +68,7 @@
                     </mat-row>
                 </mat-table>
 
-                <mat-paginator></mat-paginator>
+                <!-- <mat-paginator></mat-paginator> -->
             </div>
         </div>
     </div>

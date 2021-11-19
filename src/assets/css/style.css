@@ -3581,6 +3581,7 @@ a.fc-event:not([href]) {
 
 .menu-opened .sidebar-overlay {
     display: block;
+   
 }
 
 .sidebar-menu.opened {
@@ -5172,6 +5173,7 @@ blockquote p {
 
 .chat-sidebar.opened {
     margin-right: 0;
+    /* margin-left: 0px; */
 }
 
 

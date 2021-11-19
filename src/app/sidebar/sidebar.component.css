@@ -38,3 +38,10 @@ hr {
     left: 0;
     transition: all 0.2s ease-in-out;
 } */
+
+
+@media only screen and (max-width: 991px){
+    #sidebar.sidebar.opened{
+        margin-left: 0px;
+    }
+}

@@ -23,3 +23,24 @@ button {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* @media only screen and (max-width: 991.98px)
+{.sidebar {
+    margin-left: 0px;
+    width: 225px;
+}} */
+
+
+
+.sidebar{
+    background: #2b2b47 !important;
+
+}
+.header{
+    background: #2b2b47 !important;
+}
+
+/* .page-wrapper{
+    background: #2b2b473d !important;
+    height: 0px;
+} */
+
