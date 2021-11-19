@@ -109,7 +109,7 @@ console.log(this.stockdetails95);
       for(let i=0;i<this.stockdetails95.length;i++)
       {
         this.stockdetailed95 = this.loadquantityform.get('stockdetailed95') as FormArray;
-        this.stockdetailed95.push(this.createItemvaluess(this.stockdetails91[i],i));
+        this.stockdetailed95.push(this.createItemvaluess(this.stockdetails95[i],i));
 
 
       }
