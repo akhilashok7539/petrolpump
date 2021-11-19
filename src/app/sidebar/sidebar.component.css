@@ -45,3 +45,11 @@ hr {
         margin-left: 0px;
     }
 }
+
+img{
+    width: 143px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 17px;
+}

@@ -32,6 +32,12 @@
 .nav-item:hover{
   background-color: none !important;
 }
+@media only screen and (min-width: 991px)
+{
+  .mini-sidebar .header-left .logo img {
+    display: none;
+}
+}
 button{
   float: right;
     padding: 13px;
