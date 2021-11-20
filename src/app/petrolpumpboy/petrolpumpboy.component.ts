@@ -9,7 +9,7 @@ import { ApiservicesService } from '../_services/apiservices.service';
 })
 export class PetrolpumpboyComponent implements OnInit {
   dataSource :any= [];
-  displayedColumns = ['id', 'categoryname','mobileNumber','createdAt','status'];
+  displayedColumns = ['id', 'categoryname','mobileNumber','createdAt','cuurentstatus','status'];
   adminrole:any;
   constructor(private apiservice:ApiservicesService,private router:Router) { }
 

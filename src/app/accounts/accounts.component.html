@@ -52,13 +52,21 @@
                         <mat-header-cell *matHeaderCellDef > Joined On</mat-header-cell>
                         <mat-cell *matCellDef="let row"> {{row.createdAt | date}}</mat-cell>
                     </ng-container>
+                    <ng-container matColumnDef="cuurentstatus">
+                        <mat-header-cell *matHeaderCellDef > Status</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> 
+
+                            <p *ngIf="row.isActive === false" style=" color: red; font-weight: bold;   margin-bottom: -3px;"> Profile Deactive</p>
+                            <p  *ngIf="row.isActive === true" style="  color: green; font-weight: bold;    margin-bottom: -3px;">Profile Active</p>
+                        </mat-cell>
+                    </ng-container>
                          <!-- status on Column -->
                          <ng-container matColumnDef="status">
-                            <mat-header-cell *matHeaderCellDef > Status</mat-header-cell>
+                            <mat-header-cell *matHeaderCellDef > Action</mat-header-cell>
                             <mat-cell *matCellDef="let row">
-                                <button class="btn btn-success" style="margin: 2px;" *ngIf="row.isActive === false" (click)="updatestatus(row)">Active</button>
+                                <button class="btn btn-success" style="margin: 2px;" *ngIf="row.isActive === false" (click)="updatestatus(row)">Activate</button>
                                 <!-- &nbsp;  -->
-                                <button class="btn btn-danger" style="margin: 2px;" *ngIf="row.isActive === true" (click)="updatestatus(row)">Deactive</button>    
+                                <button class="btn btn-danger" style="margin: 2px;" *ngIf="row.isActive === true" (click)="updatestatus(row)">Deactivate</button>    
                                 <!-- &nbsp; -->
                                 <button (click)="updated(row)" style="margin: 2px;" class="btn btn-dark">Edit Account</button>
                             </mat-cell>
