@@ -34,6 +34,7 @@ import { UpdateComponent } from './petrolpumpboy/update/update.component';
 import { ViewAddedLoadComponent } from './view-added-load/view-added-load.component';
 import { UpdatedLoadComponent } from './view-added-load/updated-load/updated-load.component';
 import { ViewLoadDetailsComponent } from './view-added-load/view-load-details/view-load-details.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
 
   declarations: [
@@ -73,7 +74,7 @@ import { ViewLoadDetailsComponent } from './view-added-load/view-load-details/vi
   ],
   providers: [ApiservicesService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   entryComponents:[ViewReadingComponent,UpdateLoadquantityComponent,ViewLoadDetailsComponent],
