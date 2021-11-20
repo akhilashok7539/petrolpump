@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h5>View Added Load Details</h5>
+    </div>
+    <hr>
+    <div class="col-sm-6">
+
+        <h6>CPT Number : {{dataReposne.cptNumber}}</h6>
+        <h6>Delivery Not Number : {{dataReposne.deliveryNotNumber}}</h6>
+        <h6>Driver Details : {{dataReposne.driverDetails}}</h6>
+        <h6>Employee Responsible : {{dataReposne.empResponsible}}</h6>
+        <h6>Date : {{dataReposne.dateAndTime}}</h6>
+        <h6>Vehicle Details : {{dataReposne.vehicleDetails}}</h6>
+        <h6>Quantity : {{dataReposne.quantity}}</h6>
+        <h6>Rate : {{dataReposne.rate}}</h6>
+        <h6>Total Amount : {{dataReposne.total}}</h6>
+        <h6>Model Number  : {{dataReposne.modelNumber}}</h6>
+
+        <h6>Balance : {{dataReposne.balance}}</h6>
+        <h6>Amount : {{dataReposne.amount}}</h6>
+
+
+        <h6>Invoice Status : 
+            <span style="    color: green;
+            font-size: 15px;" *ngIf="dataReposne?.loadPdfUrl">Invoice generated</span>
+            <span style="    color: red;
+            font-size: 15px;" *ngIf="dataReposne?.loadPdfUrl === null || dataReposne?.loadPdfUrl === undefined">Invoice not generated</span>
+        </h6>
+
+        
+    </div>
+</div>

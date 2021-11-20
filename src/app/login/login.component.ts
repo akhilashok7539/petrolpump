@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiservicesService } from '../_services/apiservices.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   userName:any;
   resposne:any;
   loginform : FormGroup;
-  constructor(private fb:FormBuilder,private apiservice:ApiservicesService,private router:Router,private toaster:ToastrService) {
+  constructor(private fb:FormBuilder, private spinner: NgxSpinnerService,private apiservice:ApiservicesService,private router:Router,private toaster:ToastrService) {
     this.loginform = this.fb.group({
       userId:['',Validators.required],
       password:['',Validators.required]
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
       error =>{
         console.log(error);
         this.toaster.error("Invalid Details")
+        this.spinner.hide();
       }
     )
   }

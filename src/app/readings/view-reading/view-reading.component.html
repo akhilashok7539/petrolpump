@@ -5,6 +5,8 @@ font-size: 31px; margin-bottom: 40px;
 font-weight: bold;">Sales Report</h3>
 <div class="row">
     <div class="col-sm-6">
+        <h5> Date : {{responsedata.date}}</h5>
+
         <h6 *ngIf="responsedata.shiftType === 'day_shift'">Shift Type : Day Shift <br></h6>
         <h6 *ngIf="responsedata.shiftType === 'night_shift'">Shift Type : Night Shift <br></h6>
     </div>
@@ -15,7 +17,6 @@ font-weight: bold;">Sales Report</h3>
 </div>
 
 
-<p> Date : {{responsedata.date}}</p>
 
 <table id="customers">
     <tr>
@@ -113,8 +114,8 @@ font-weight: bold;">Sales Report</h3>
         <!-- <h6>Overall sales at {{responsedata.shiftType}} : 
             <span style="    color: red;"> {{responsedata.overAllSales}}</span>
            </h6> -->
-           <h6 *ngIf="responsedata.shiftType === 'day_shift'">Overall sales at Day Shift  <span style="    color: red;"> {{responsedata.overAllSales}}</span><br></h6>
-            <h6 *ngIf="responsedata.shiftType === 'night_shift'">Overall sales at Night Shift  <span style="    color: red;"> {{responsedata.overAllSales}}</span><br></h6>
+           <h6 *ngIf="responsedata.shiftType === 'day_shift'">Overall sales on Day Shift  <span style="    color: red;"> {{responsedata.overAllSales}}</span><br></h6>
+            <h6 *ngIf="responsedata.shiftType === 'night_shift'">Overall sales on Night Shift  <span style="    color: red;"> {{responsedata.overAllSales}}</span><br></h6>
     </div>
    
 </div>

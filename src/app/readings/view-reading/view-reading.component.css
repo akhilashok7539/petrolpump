@@ -1,5 +1,7 @@
 h6{
-    font-size: 19px;
+    font-size: 17px;
+    font-weight: 500;
+
 }
 
 #customers {
@@ -15,6 +17,10 @@ h6{
   hr{
     width: 100%;
     background: #fda600 !important;
+}
+h5{
+  font-size: 20px;
+    font-weight: 600;
 }
   #customers tr:nth-child(even){background-color: #f2f2f2;}
   

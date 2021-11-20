@@ -31,6 +31,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { LoaderInterceptor } from './_services/loadinginterceptor';
 import { UpdateComponent } from './petrolpumpboy/update/update.component';
+import { ViewAddedLoadComponent } from './view-added-load/view-added-load.component';
+import { UpdatedLoadComponent } from './view-added-load/updated-load/updated-load.component';
+import { ViewLoadDetailsComponent } from './view-added-load/view-load-details/view-load-details.component';
 @NgModule({
 
   declarations: [
@@ -54,7 +57,10 @@ import { UpdateComponent } from './petrolpumpboy/update/update.component';
     ViewPdfReportsComponent,
     AddPumpboyComponent,
     UpdateStockdetailsComponent,
-    UpdateComponent
+    UpdateComponent,
+    ViewAddedLoadComponent,
+    UpdatedLoadComponent,
+    ViewLoadDetailsComponent
   ],
   imports: [
     BrowserModule,FormsModule,ReactiveFormsModule,
@@ -70,7 +76,7 @@ import { UpdateComponent } from './petrolpumpboy/update/update.component';
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  entryComponents:[ViewReadingComponent,UpdateLoadquantityComponent],
+  entryComponents:[ViewReadingComponent,UpdateLoadquantityComponent,ViewLoadDetailsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

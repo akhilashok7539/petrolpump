@@ -16,6 +16,8 @@ import { UpdateComponent } from './petrolpumpboy/update/update.component';
 import { ReadingsComponent } from './readings/readings.component';
 import { UpdateStockdetailsComponent } from './readings/update-stockdetails/update-stockdetails.component';
 import { ViewPdfReportsComponent } from './readings/view-pdf-reports/view-pdf-reports.component';
+import { UpdatedLoadComponent } from './view-added-load/updated-load/updated-load.component';
+import { ViewAddedLoadComponent } from './view-added-load/view-added-load.component';
 
 
 const routes: Routes = [
@@ -41,6 +43,9 @@ const routes: Routes = [
 
   {path:'add-petrolpumpboy',component:AddPumpboyComponent},
   {path:'update-stockdetails',component:UpdateStockdetailsComponent},
+
+  {path:'view-added-load',component:ViewAddedLoadComponent},
+  {path:'updated-load',component:UpdatedLoadComponent},
 
 
 ];

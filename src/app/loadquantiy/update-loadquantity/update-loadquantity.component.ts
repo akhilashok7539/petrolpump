@@ -75,7 +75,6 @@ export class UpdateLoadquantityComponent implements OnInit {
 
   submit()
   {
-    console.log(this.loadquantityform.value);
     
     this.apiservice.doPutRequest("admin/quantity/update",this.loadquantityform.value).subscribe(
       data =>{
@@ -87,6 +86,14 @@ export class UpdateLoadquantityComponent implements OnInit {
 
       }
     )
+    // for(let i =0;i<this.loadquantityform.value['quantities'].length;i++)
+    // {
+    //   if(this.loadquantityform.value['quantities'][i].quantity === null || this.loadquantityform.value['quantities'][i].quantity === "null" )
+    //   {
+    //     delete this.loadquantityform.value['quantities'][i].quantity
+    //   }
+    // }
+    console.log(this.loadquantityform.value);
 
     
   }
@@ -102,5 +109,11 @@ export class UpdateLoadquantityComponent implements OnInit {
   {
     this.dialogRef.close();
 
+  }
+  removeGroup(i: number) {
+    // remove address from the list
+    const control = <FormArray>this.loadquantityform.controls['quantities'];
+    control.removeAt(i);
+    this.toaster.success("Removed")
   }
 }

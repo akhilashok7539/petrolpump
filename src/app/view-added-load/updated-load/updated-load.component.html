@@ -1,0 +1,142 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Update Load Details</h4>
+
+            </div>
+        </div>
+        <div class="card">
+
+   
+        <form [formGroup]="loadform">
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="">Amount </label>
+
+                    <input type="text" class="form-control"  formControlName="amount" placeholder="Enter Amount">
+                   
+
+                </div>
+                <div class="col-sm-6">
+                    <label for="">Balance </label>
+
+                    <input type="text" class="form-control"  formControlName="balance" placeholder="Enter balance">
+                   
+
+                </div>
+                <div class="col-sm-6">
+                    <label for="">CPT Number </label>
+
+                    <input type="text" class="form-control"  formControlName="cptNumber" placeholder="Enter CPT number">
+                   
+
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="">Date </label>
+
+                    <input type="date" class="form-control"   [(ngModel)]="today"  formControlName="dateAndTime"  (change)="selcteddate(today)">
+                   
+
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="">Delivery NOT Number </label>
+
+                    <input type="text" class="form-control"  formControlName="deliveryNotNumber" placeholder="Enter Delivery NOT number">
+                   
+
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="">Driver Details </label>
+
+                    <input type="text" class="form-control"  formControlName="driverDetails" placeholder="Enter driver details">
+                   
+
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="">EMP Responsible </label>
+
+                    <input type="text" class="form-control"  formControlName="empResponsible" placeholder="Enter EMP Responsible ">
+                   
+
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="">Model Number </label>
+
+                    <input type="text" class="form-control"  formControlName="modelNumber" placeholder="Enter Model Number ">
+                   
+
+                </div>
+
+
+                <div class="col-sm-6">
+                    <label for="">Petrol Type </label>
+
+                    <select name="" id=""  class="form-control" formControlName="petrolType">
+                        <option value="91">91</option>
+                        <option value="95">95</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="">Quantity</label>
+
+                    <input type="text" class="form-control"  formControlName="quantity" placeholder="Enter Quantity ">
+                   
+
+                </div>
+
+
+                <div class="col-sm-6">
+                    <label for="">Rate</label>
+
+                    <input type="text" class="form-control"  formControlName="rate" placeholder="Enter Rate ">
+                   
+
+                </div>
+
+
+                <div class="col-sm-6">
+                    <label for="">Total</label>
+
+                    <input type="text" class="form-control"  formControlName="total" placeholder="Enter total ">
+                   
+
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="">Vehicle Details</label>
+
+                    <input type="text" class="form-control"  formControlName="vehicleDetails" placeholder="Enter Vehicle Details ">
+                   
+
+                </div>
+                <div class="col-sm-12">
+                    <button class="btn btn-warning" (click)="submit()">SUBMIT</button>
+                    <!-- <button class="btn btn-warning"  ><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button> -->
+                </div>
+            </div>
+
+        </form>     </div>
+    </div>
+</div>

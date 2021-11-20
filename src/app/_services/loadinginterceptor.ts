@@ -12,19 +12,22 @@ export class LoaderInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.spinner.show();
+
+        console.log(req);
+        
         return next.handle(req).pipe(tap(
   
             
             (event: HttpEvent<any>) => {
-               
+                // this.spinner.hide();
                 if (event instanceof HttpResponse) {
-                  
-                              
-                  console.log(req);
                     this.spinner.hide();
                 }
+                else{
+                    // this.spinner.hide();
+                }
                
-                // this.spinner.hide();
+              
             }
 
         ));

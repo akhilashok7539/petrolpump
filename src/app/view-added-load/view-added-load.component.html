@@ -1,0 +1,85 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<!-- updated-load -->
+
+
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-3">
+                <h4 class="page-title">View Added Load Details</h4>
+
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+           
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+
+
+                <mat-table [dataSource]="dataSource"  >
+
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef > ID </mat-header-cell>
+                        <mat-cell *matCellDef="let row;let i=index;"> {{i+1}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Account Name Column -->
+                    <ng-container matColumnDef="categoryname">
+                        <mat-header-cell *matHeaderCellDef >Delivery Not Number</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.deliveryNotNumber}} </mat-cell>
+                    </ng-container>
+
+             
+                     <!-- Mobile Number Column -->
+                     <ng-container matColumnDef="mobileNumber">
+                        <mat-header-cell *matHeaderCellDef> Driver Details</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.driverDetails}}</mat-cell>
+                    </ng-container>
+                       <!-- Joined on Column -->
+                       <ng-container matColumnDef="createdAt">
+                        <mat-header-cell *matHeaderCellDef > Created On</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.createdAt | date}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="model">
+                        <mat-header-cell *matHeaderCellDef > Model Number</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.modelNumber }}</mat-cell>
+                    </ng-container>
+                       <!-- status on Column -->
+                       <ng-container matColumnDef="status">
+                        <mat-header-cell *matHeaderCellDef > Status</mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <button (click)="openDialog(row)"  style="margin: 2px;"class="btn btn-success">View More</button>
+                            <button (click)="updated(row)"  style="margin: 2px;"class="btn btn-dark">update Details</button>
+                        </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="pdf">
+                        <mat-header-cell *matHeaderCellDef > </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <button *ngIf="row?.loadPdfUrl" class="btn btn-secondary" (click)="viewpdf(row)">View Invoice </button>
+
+                        </mat-cell>
+                    </ng-container>
+                    
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <!-- <mat-paginator></mat-paginator> -->
+            </div>
+        </div>
+    </div>
+</div>
